@@ -26,36 +26,44 @@ namespace dynamixel {
                 typedef uint8_t baudrate_t;
                 static const protocol_t::address_t return_delay_time = 5;
                 typedef uint8_t return_delay_time_t;
-                static const protocol_t::address_t cw_angle_limit = 6;
+                static const protocol_t::address_t operating_mode = 6;
+                typedef uint8_t operating_mode_t;
+                static const protocol_t::address_t cw_angle_limit = 7;
                 typedef uint16_t cw_angle_limit_t;
-                static const protocol_t::address_t ccw_angle_limit = 8;
+                static const protocol_t::address_t ccw_angle_limit = 9;
                 typedef uint16_t ccw_angle_limit_t;
+
                 static const protocol_t::address_t highest_temperature_limit = 11;
                 typedef uint8_t highest_temperature_limit_t;
                 static const protocol_t::address_t lowest_voltage_limit = 12;
                 typedef uint8_t lowest_voltage_limit_t;
                 static const protocol_t::address_t highest_voltage_limit = 13;
                 typedef uint8_t highest_voltage_limit_t;
-                static const protocol_t::address_t max_torque = 14;
-                typedef uint16_t max_torque_t;
-                static const protocol_t::address_t status_return_level = 16;
+                // static const protocol_t::address_t max_torque = 14;
+                // typedef uint16_t max_torque_t;
+
+                static const protocol_t::address_t torque_limit = 15;
+                typedef uint16_t torque_limit_t;
+
+                // static const protocol_t::address_t alarm_led = 17;
+                // typedef uint8_t alarm_led_t;
+                static const protocol_t::address_t status_return_level = 26; // unused
                 typedef uint8_t status_return_level_t;
-                static const protocol_t::address_t alarm_led = 17;
-                typedef uint8_t alarm_led_t;
-                static const protocol_t::address_t alarm_shutdown = 18;
+                static const protocol_t::address_t alarm_shutdown = 27;  // unused
                 typedef uint8_t alarm_shutdown_t;
-                static const protocol_t::address_t torque_enable = 24;
+
+                static const protocol_t::address_t torque_enable = 48;
                 typedef uint8_t torque_enable_t;
-                static const protocol_t::address_t led = 25;
-                typedef uint8_t led_t;
-                static const protocol_t::address_t cw_compliance_margin = 26;
-                typedef uint8_t cw_compliance_margin_t;
-                static const protocol_t::address_t ccw_compliance_margin = 27;
-                typedef uint8_t ccw_compliance_margin_t;
-                static const protocol_t::address_t cw_compliance_slope = 28;
-                typedef uint8_t cw_compliance_slope_t;
-                static const protocol_t::address_t ccw_compliance_slope = 29;
-                typedef uint8_t ccw_compliance_slope_t;
+                // static const protocol_t::address_t led = 25;
+                // typedef uint8_t led_t;
+                // static const protocol_t::address_t cw_compliance_margin = 26;
+                // typedef uint8_t cw_compliance_margin_t;
+                // static const protocol_t::address_t ccw_compliance_margin = 27;
+                // typedef uint8_t ccw_compliance_margin_t;
+                // static const protocol_t::address_t cw_compliance_slope = 28;
+                // typedef uint8_t cw_compliance_slope_t;
+                // static const protocol_t::address_t ccw_compliance_slope = 29;
+                // typedef uint8_t ccw_compliance_slope_t;
                 static const protocol_t::address_t goal_position = 30;
                 typedef uint16_t goal_position_t;
                 static const goal_position_t min_goal_position = 0;
@@ -70,8 +78,8 @@ namespace dynamixel {
                 static constexpr double rpm_per_tick = 0.111;
                 static constexpr bool speed_sign_bit = true;
 
-                static const protocol_t::address_t torque_limit = 34;
-                typedef uint16_t torque_limit_t;
+                // static const protocol_t::address_t torque_limit = 34;
+                // typedef uint16_t torque_limit_t;
                 static const protocol_t::address_t present_position = 36;
                 typedef uint16_t present_position_t;
                 static const protocol_t::address_t present_speed = 38;
@@ -102,15 +110,16 @@ namespace dynamixel {
             MODEL_NAME(M30);
 
             // Here we add the fields that are not common to all dynamixels
+            READ_WRITE_FIELD(operating_mode);
             READ_WRITE_FIELD(cw_angle_limit);
             READ_WRITE_FIELD(ccw_angle_limit);
-            READ_WRITE_FIELD(max_torque);
-            READ_WRITE_FIELD(alarm_led);
-            READ_WRITE_FIELD(led);
-            READ_WRITE_FIELD(cw_compliance_margin);
-            READ_WRITE_FIELD(ccw_compliance_margin);
-            READ_WRITE_FIELD(cw_compliance_slope);
-            READ_WRITE_FIELD(ccw_compliance_slope);
+            //READ_WRITE_FIELD(max_torque);
+            // READ_WRITE_FIELD(alarm_led);
+            // READ_WRITE_FIELD(led);
+            // READ_WRITE_FIELD(cw_compliance_margin);
+            // READ_WRITE_FIELD(ccw_compliance_margin);
+            // READ_WRITE_FIELD(cw_compliance_slope);
+            // READ_WRITE_FIELD(ccw_compliance_slope);
             READ_WRITE_FIELD(torque_limit);
             READ_FIELD(present_load);
             READ_WRITE_FIELD(lock);
