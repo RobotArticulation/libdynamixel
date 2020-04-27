@@ -71,20 +71,33 @@ namespace dynamixel {
 
                 static const protocol_t::address_t pKd = 50;
                 typedef uint16_t pKd_t;
-                static const protocol_t::address_t pKi = 52;
-                typedef uint16_t pki_t;
-                static const protocol_t::address_t pKp = 54;
-                typedef uint16_t pkp_t;
 
+                static const protocol_t::address_t pKi = 52;
+                typedef uint16_t pKi_t;
+
+                static const protocol_t::address_t pKp = 54;
+                typedef uint16_t pKp_t;
 
                 static const protocol_t::address_t pKff1 = 56;
                 typedef uint16_t pKff1_t;
                 static const protocol_t::address_t pKff2 = 58;
                 typedef uint16_t pKff2_t;
 
+                static const protocol_t::address_t vKi = 60;
+                typedef uint16_t vKi_t;
+                static const protocol_t::address_t vKp = 62;
+                typedef uint16_t vKp_t;
+
+                static const protocol_t::address_t angular_velocity_profile = 68;
+                typedef uint16_t angular_velocity_profile_t;
+                static const protocol_t::address_t acceleration_velocity_profile = 70;
+                typedef uint16_t acceleration_velocity_profile_t;
+                static const protocol_t::address_t dead_zone = 72;
+                typedef uint16_t dead_zone_t;
 
                 static const protocol_t::address_t goal_position = 30;
                 typedef uint16_t goal_position_t;
+
                 static const goal_position_t min_goal_position = 0;
                 static const goal_position_t max_goal_position = 1023;
                 static const uint16_t min_goal_angle_deg = 0;
@@ -131,9 +144,19 @@ namespace dynamixel {
             READ_WRITE_FIELD(acceleration_limit);
             READ_WRITE_FIELD(home_position_offset);
 
-            //READ_WRITE_FIELD(pppppp_Kd);
-            // READ_WRITE_FIELD(pKi);
-            // READ_WRITE_FIELD(pKp);
+            READ_WRITE_FIELD(pKd);
+            READ_WRITE_FIELD(pKi);
+            READ_WRITE_FIELD(pKp);
+
+            READ_WRITE_FIELD(pKff1);
+            READ_WRITE_FIELD(pKff2);
+            READ_WRITE_FIELD(vKi);
+            READ_WRITE_FIELD(vKp);
+
+            READ_WRITE_FIELD(angular_velocity_profile);
+            READ_WRITE_FIELD(acceleration_velocity_profile);
+            READ_WRITE_FIELD(dead_zone);
+
 
 
         };

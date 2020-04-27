@@ -86,6 +86,17 @@ namespace dynamixel {
             BASE_FIELD(ack_response_time);  
             BASE_FIELD(angular_velocity_limit);
             BASE_FIELD(home_position_offset);
+            BASE_FIELD(pKd);
+            BASE_FIELD(pKi);
+            BASE_FIELD(pKp);
+            BASE_FIELD(pKff1);
+            BASE_FIELD(pKff2);
+            BASE_FIELD(vKi);
+            BASE_FIELD(vKp);
+
+            BASE_FIELD(angular_velocity_profile);
+            BASE_FIELD(acceleration_velocity_profile);
+            BASE_FIELD(dead_zone);
 
             // Extra fields for models with protocol 2
             // ---------------------------------------
