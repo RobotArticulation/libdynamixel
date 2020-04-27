@@ -95,33 +95,45 @@ namespace dynamixel {
                 static const protocol_t::address_t dead_zone = 72;
                 typedef uint16_t dead_zone_t;
 
-                static const protocol_t::address_t goal_position = 30;
-                typedef uint16_t goal_position_t;
-
+                static const protocol_t::address_t goal_position = 78; //  aka target_position
+                typedef int32_t goal_position_t;
                 static const goal_position_t min_goal_position = 0;
-                static const goal_position_t max_goal_position = 1023;
+                static const goal_position_t max_goal_position = 4095;
                 static const uint16_t min_goal_angle_deg = 0;
                 static const uint16_t max_goal_angle_deg = 360;
-                static const protocol_t::address_t moving_speed = 32;
-                typedef uint16_t moving_speed_t;
 
+                static const protocol_t::address_t moving_speed = 82; // aka target_angular velocity
+                typedef uint16_t moving_speed_t;
                 static const moving_speed_t min_goal_speed = 0;
                 static const moving_speed_t max_goal_speed = 1023;
-                static constexpr double rpm_per_tick = 0.111;
+                static constexpr double rpm_per_tick = 0.111; // TODO: need to work this out 
                 static constexpr bool speed_sign_bit = true;
 
-                static const protocol_t::address_t present_position = 36;
-                typedef uint16_t present_position_t;
-                static const protocol_t::address_t present_speed = 38;
+                static const protocol_t::address_t target_torque = 84;
+                typedef uint16_t target_torque_t;
+
+                static const protocol_t::address_t present_position = 86; // aka actual position
+                typedef int32_t present_position_t;
+
+                static const protocol_t::address_t present_speed = 90;  // aka actual angular velocity
                 typedef uint16_t present_speed_t;
-                static const protocol_t::address_t present_voltage = 42;
+
+                static const protocol_t::address_t present_torque = 92;  // aka actual angular velocity
+                typedef uint16_t present_torque_t;
+
+                static const protocol_t::address_t present_voltage = 94;
                 typedef uint8_t present_voltage_t;
-                static const protocol_t::address_t present_temperature = 43;
+                static const protocol_t::address_t present_current = 95;
+                typedef uint16_t present_current_t;
+                static const protocol_t::address_t present_temperature = 97;
                 typedef uint8_t present_temperature_t;
-                static const protocol_t::address_t registered = 44;
-                typedef uint8_t registered_t;
-                static const protocol_t::address_t moving = 46;
+
+                static const protocol_t::address_t moving = 99;
                 typedef uint8_t moving_t;
+
+                static const protocol_t::address_t registered = 101; // aka registered shadow instruction
+                typedef uint8_t registered_t;
+
             };
         };
 
@@ -156,6 +168,9 @@ namespace dynamixel {
             READ_WRITE_FIELD(angular_velocity_profile);
             READ_WRITE_FIELD(acceleration_velocity_profile);
             READ_WRITE_FIELD(dead_zone);
+
+            READ_WRITE_FIELD(target_torque);
+            READ_WRITE_FIELD(present_torque);
 
 
 

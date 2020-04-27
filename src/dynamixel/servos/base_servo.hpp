@@ -98,6 +98,9 @@ namespace dynamixel {
             BASE_FIELD(acceleration_velocity_profile);
             BASE_FIELD(dead_zone);
 
+            BASE_FIELD(target_torque);
+            BASE_FIELD(present_torque);
+
             // Extra fields for models with protocol 2
             // ---------------------------------------
             BASE_FIELD(model_info);
