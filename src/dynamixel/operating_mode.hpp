@@ -63,9 +63,14 @@ namespace dynamixel {
     {
         uint8_t mode;
 
+        using ServoPtr = std::shared_ptr<servos::BaseServo<Protocol2>>;
+        ServoPtr servo = find_servo<Protocol2>(controller, id);
+
+        bool isMercuryServo = servo->model_name().compare("M30") == 0;
+
         // read operating mode
         StatusPacket<Protocol2> status;
-        controller.send(instructions::Read<Protocol2>(id, 11, 1));
+        controller.send(instructions::Read<Protocol2>(id, isMercuryServo ? 6 : 11, 1));
 
         if (!controller.recv(status)) {
             std::stringstream message;
