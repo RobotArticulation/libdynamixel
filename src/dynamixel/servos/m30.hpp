@@ -4,7 +4,7 @@
 #include <stdint.h>
 
 #include "servo.hpp"
-#include "../protocols/protocol1.hpp"
+#include "../protocols/protocol2.hpp"
 
 namespace dynamixel {
     namespace servos {
@@ -12,7 +12,7 @@ namespace dynamixel {
 
         template <>
         struct ModelTraits<M30> {
-            typedef protocols::Protocol1 protocol_t;
+            typedef protocols::Protocol2 protocol_t;
 
             struct CT {
                 static const protocol_t::address_t model_number = 0;
@@ -171,9 +171,6 @@ namespace dynamixel {
 
             READ_WRITE_FIELD(target_torque);
             READ_WRITE_FIELD(present_torque);
-
-
-
         };
     }
 }

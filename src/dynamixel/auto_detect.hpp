@@ -27,12 +27,11 @@ namespace dynamixel {
             return std::make_shared<servos::Mx64>(id);
         case servos::Mx106::ct_t::model_number_value:
             return std::make_shared<servos::Mx106>(id);
-        case servos::M30::ct_t::model_number_value:
-            return std::make_shared<servos::M30>(id);
         default:
             throw errors::Error("Unrecognized model number");
         }
     }
+
 
     inline std::shared_ptr<servos::BaseServo<protocols::Protocol2>> get_servo(protocols::Protocol2::id_t id, uint16_t model, protocols::Protocol2::address_t selected_protocol)
     {
@@ -67,6 +66,8 @@ namespace dynamixel {
             return std::make_shared<servos::Mx64P2>(id);
         case servos::Mx106P2::ct_t::model_number_value:
             return std::make_shared<servos::Mx106P2>(id);
+        case servos::M30::ct_t::model_number_value:
+            return std::make_shared<servos::M30>(id);
         default:
             throw errors::Error("Unrecognized model number");
         }
