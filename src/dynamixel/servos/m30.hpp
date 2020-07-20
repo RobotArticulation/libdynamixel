@@ -97,8 +97,8 @@ namespace dynamixel {
 
                 static const protocol_t::address_t goal_position = 78; //  aka target_position
                 typedef int32_t goal_position_t;
-                static const goal_position_t min_goal_position = 0;
-                static const goal_position_t max_goal_position = 4095;
+                static const goal_position_t min_goal_position = -2048;
+                static const goal_position_t max_goal_position = 2047;
                 static const uint16_t min_goal_angle_deg = 0;
                 static const uint16_t max_goal_angle_deg = 360;
 

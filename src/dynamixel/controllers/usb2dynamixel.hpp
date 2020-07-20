@@ -147,11 +147,6 @@ namespace dynamixel {
 
                 const int ret = write(_fd, packet.data(), packet.size());
 
-                // std::cout << "Send: ";
-                // for (size_t i = 0; i < packet.size(); ++i)
-                //     std::cout << "0x" << std::setfill('0') << std::setw(2) << std::hex << (unsigned int)packet[i] << " ";
-                // std::cout << std::endl;
-
                 if (ret == -1) {
                     throw errors::Error("Usb2Dynamixel::Send write error " + write_error_string(errno));
                 }
