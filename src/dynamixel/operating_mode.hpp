@@ -66,7 +66,7 @@ namespace dynamixel {
         using ServoPtr = std::shared_ptr<servos::BaseServo<Protocol2>>;
         ServoPtr servo = find_servo<Protocol2>(controller, id);
 
-        bool isMercuryServo = servo->model_name().compare("M30") == 0;
+        bool isMercuryServo = servo->model_name().compare("M30") == 0 || servo->model_name().compare("M50") == 0 || servo->model_name().compare("M65") == 0;
 
         // read operating mode
         StatusPacket<Protocol2> status;

@@ -82,7 +82,7 @@ namespace dynamixel {
             BASE_FIELD(resolution_divider);
             // } Only for MX-series
 
-            // Only M30
+            // Only M30, M50 & M65 servos
             BASE_FIELD(ack_response_time);  
             BASE_FIELD(angular_velocity_limit);
             BASE_FIELD(home_position_offset);

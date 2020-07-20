@@ -25,5 +25,7 @@
 #include "servos/pro_l54_50_s500.hpp"
 #include "servos/pro_l42_10_s300.hpp"
 #include "servos/m30.hpp"
+#include "servos/m50.hpp"
+#include "servos/m65.hpp"
 
 #endif
