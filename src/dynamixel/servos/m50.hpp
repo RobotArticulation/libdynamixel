@@ -131,7 +131,7 @@ namespace dynamixel {
                 static const protocol_t::address_t moving = 99;
                 typedef uint8_t moving_t;
 
-                static const protocol_t::address_t registered = 101; // aka registered shadow instruction
+                static const protocol_t::address_t registered = 49; // aka registered shadow instruction
                 typedef uint8_t registered_t;
 
             };

@@ -99,8 +99,8 @@ namespace dynamixel {
                 typedef int32_t goal_position_t;
                 static const goal_position_t min_goal_position = -2048;
                 static const goal_position_t max_goal_position = 2047;
-                static const uint16_t min_goal_angle_deg = 0;
-                static const uint16_t max_goal_angle_deg = 360;
+                static const int16_t min_goal_angle_deg = -180;
+                static const int16_t max_goal_angle_deg = 180;
 
                 static const protocol_t::address_t moving_speed = 82; // aka target_angular velocity
                 typedef uint16_t moving_speed_t;
@@ -131,7 +131,7 @@ namespace dynamixel {
                 static const protocol_t::address_t moving = 99;
                 typedef uint8_t moving_t;
 
-                static const protocol_t::address_t registered = 101; // aka registered shadow instruction
+                static const protocol_t::address_t registered = 49; // aka registered shadow instruction
                 typedef uint8_t registered_t;
 
             };
