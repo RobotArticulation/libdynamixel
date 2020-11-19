@@ -144,6 +144,11 @@ namespace dynamixel {
             {
                 if (_fd == -1)
                     return;
+                
+                // std::cout << "Send: ";
+                // for (size_t i = 0; i < packet.size(); ++i)
+                //     std::cout << "0x" << std::setfill('0') << std::setw(2) << std::hex << (unsigned int)packet[i] << " ";
+                // std::cout << std::endl;
 
                 const int ret = write(_fd, packet.data(), packet.size());
 
@@ -173,8 +178,6 @@ namespace dynamixel {
                 std::vector<uint8_t> packet;
                 packet.reserve(_recv_buffer_size);
 
-                // std::cout << "Receive:" << std::endl;
-
                 do {
                     double current_time = get_time();
                     uint8_t byte;
@@ -201,8 +204,10 @@ namespace dynamixel {
                         return false;
                 } while (state != DecodeState::DONE);
 
+                // std::cout << "Receive: ";
+                // for (size_t i = 0; i < packet.size(); ++i)
+                //     std::cout << "0x" << std::setfill('0') << std::setw(2) << std::hex << (unsigned int)packet[i] << " ";
                 // std::cout << std::endl;
-                // std::cout << std::dec;
 
                 return true;
             }
